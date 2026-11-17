@@ -1,0 +1,11 @@
+name = "fire-archive-api"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://acamaro.com,http://localhost:8765"
+
+# Secrets (not stored here):
+#   npx wrangler secret put FIRMS_MAP_KEY       # free key: https://firms.modaps.eosdis.nasa.gov/api/map_key/
+#   npx wrangler secret put SUPABASE_URL        # https://<project>.supabase.co
+#   npx wrangler secret put SUPABASE_ANON_KEY   # the project's anon (read-only) key
