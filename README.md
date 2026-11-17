@@ -59,6 +59,7 @@ Environment: `WF_DSN` (default `dbname=wildfire host=localhost port=5432`), `FIR
   ≤0.6 within 2 km, decaying with distance; 0.4 DBSCAN cluster within 5 km of a reported origin. Only during
   the fire's window (discovery −1 day … end +3 days); volcano/static/offshore detections are excluded; one fire
   per detection. Perimeters are cut with `ST_Subdivide` (≤64 vertices) so the spatial index stays fast.
+- **Fire front reconstruction** (`export/arrival.py`): an arrival-time map per fire (when the fire reached each 20–60 m cell), built from cumulative detection snapshots per satellite pass, bounded by mapped perimeters, with the ground between passes timed by distance from the previous edge. The web app renders it as a moving flame front. It is an interpolation of observations, also usable as a training label.
 - **Training pairs** (`vw_training_pair`): every known state time (perimeter or overpass) paired with the next,
   keeping the true `dt_hours`, which irregular-time models (neural ODEs) need.
 - **Data quality** handled at load: placeholder dates (1970) and end dates before discovery become NULL;
